@@ -1,0 +1,18 @@
+<%- include('partials/header') -%>
+
+<form action="/" method="post" class="form-signin">
+    <img class="mb-4" src="/images/newsletter_icon.png" alt="" height="120px">
+    <h1 class="h3 mb-3 font-weight-normal form-title">Sign up to Alex Bewley PT</h1>
+    <input type="text" name="firstName" placeholder="First name" class="form-control top" required autofocus autocomplete="off">
+    <input type="text" name="lastName" placeholder="Last name" class="form-control middle" required>
+    <input type="email" name="email" placeholder="Email" class="form-control bottom" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Join</button>
+
+  </form>
+
+<%- include('partials/footer') -%>
