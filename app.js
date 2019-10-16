@@ -19,6 +19,14 @@ app.get("/", function(req, res){
   res.render("home");
 });
 
+app.get("/success", function(req, res){
+  res.render("success");
+});
+
+app.get("/fail", function(req, res){
+  res.render("fail");
+});
+
 app.post("/", function(req, res){
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
@@ -52,17 +60,16 @@ app.post("/", function(req, res){
     if (err) {
       console.log(err);
       console.log(response.statusCode);
-      res.send("There was an error, please try again.");
+      res.redirect("/fail");
     } else {
       if (response.statusCode === 200) {
-        res.send("You've now signed up! This will redirect you to a success page when developed.");
+        res.redirect("/success");
       } else {
-        res.send("There was some kind of error. You should try again");
+        res.redirect("/fail");
       }
       console.log(response.statusCode);
     }
   });
-
 
 }); //end app.post()
 
