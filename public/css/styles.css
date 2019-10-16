@@ -1,19 +1,42 @@
 html {
   height: 100%;
 }
-body {
-  min-height: 100%;
-}
 
 body {
+  min-height: 100%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  /* flex-direction: row-reverse; */
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
+  color: white;
+}
+
+h3 {
+  /* color: white; */
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
 }
 
 .form-signin {
@@ -21,6 +44,15 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  border-radius: 25px;
+  position: relative;
+  background-color: rgb(0, 0, 0, 0.5);
+  color: rgb(255, 255, 255);
+
+}
+
+.fa-dumbbell {
+  color: rgb(130, 42, 163);
 }
 
 .form-signin .form-control {

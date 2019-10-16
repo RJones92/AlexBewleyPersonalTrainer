@@ -47,6 +47,7 @@ app.post("/", function(req, res){
     body: jsonMemberData
   };
 
+  //Makes the request to the URL in options variable.
   request(options, function (err, response, body){
     if (err) {
       console.log(err);
