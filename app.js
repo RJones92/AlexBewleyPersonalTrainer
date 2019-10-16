@@ -37,11 +37,13 @@ app.post("/", function(req, res){
   };
   var jsonMemberData = JSON.stringify(memberData);
 
-  //NEEDS authorising through headers
+  //POST to url/list/{list-id}
   var options = {
-    url: "https://us3.api.mailchimp.com/3.0/lists/e49a54818b",
+    url: "https://us3.api.mailchimp.com/3.0/lists/" + process.env.MAILCHIMP_AUDIENCE_ID,
     method: "POST",
-    headers: {},
+    headers: {
+      Authorization: "anyUserName " + process.env.MAILCHIMP_API_KEY
+    },
     body: jsonMemberData
   };
 
@@ -49,10 +51,14 @@ app.post("/", function(req, res){
     if (err) {
       console.log(err);
       console.log(response.statusCode);
-      res.send("There was an error");
+      res.send("There was an error, please try again.");
     } else {
+      if (response.statusCode === 200) {
+        res.send("You've now signed up! This will redirect you to a success page when developed.");
+      } else {
+        res.send("There was some kind of error. You should try again");
+      }
       console.log(response.statusCode);
-      res.redirect("/");
     }
   });
 
